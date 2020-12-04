@@ -6,7 +6,7 @@ Cryptocurrency trading application. It can be used as an exercise for users befo
 CoinGecko was used for prices. The authorization is made with the help of the Auth0 service, and the data on the user's wallet is in the non-relational restdb.io database.
 
 ## Appearance
-<img src="https://github.com/tmilardovich/cryptoTrade/blob/master/wwwroot/img/imgnews/prices.PNGg" alt="appearance">
+<img src="https://github.com/tmilardovich/cryptoTrade/blob/master/wwwroot/img/imgnews/prices.PNG" alt="appearance">
 
 ## Contact
 Mail: <a href="mailto:tmilardov@live.pmfst.hr">tmilardov@live.pmfst.hr</a>
