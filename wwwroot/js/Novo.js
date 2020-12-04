@@ -12,7 +12,7 @@ function PopUpLogin() {
     localStorage.clear();
     lock.show();
     return false;
-};
+}
 lock.on("authenticated", function (authResult) {
     lock.getProfile(authResult.accessToken, function (error, profile) {
         if (error) {
@@ -43,7 +43,6 @@ var show_profile_info = function (profile) {
     console.log(profile.nickname);
     nick = profile.nickname;
 };
-var rowID;
 function getData() {
     var p = 'https://blazordb-2a00.restdb.io/rest/data?q={';
     var u = `"username": "${nick}"}`;
@@ -130,7 +129,7 @@ function updatingData() {
         url: 'https://blazordb-2a00.restdb.io/rest/data',
         contentType: "application/json",
         data: JSON.stringify(jsondata),
-        success: function (result) {
+        success: function () {
             window.location = "/Wallet";
         }
     });
