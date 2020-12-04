@@ -1,4 +1,4 @@
-# cryptoTrade
+# cryptoTrade [![CodeFactor](https://www.codefactor.io/repository/github/tmilardovich/cryptotrade/badge)](https://www.codefactor.io/repository/github/tmilardovich/cryptotrade)
 Blazor WebAssembly web application for virtual cryptocurrency trading (with CoinGecko, restdb.io, Auth0)
 
 ## About
