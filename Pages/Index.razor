@@ -1,0 +1,52 @@
+﻿@page "/"
+@inherits IndexBase
+<br />
+<br />
+<br />
+<h1>Home</h1>
+<br />
+<span style="zoom:2">
+    <MatIcon Icon="done_outlone" Id="learn"></MatIcon>
+    <label for="learn">Learn</label>
+</span>
+<br />
+<span style="zoom:2">
+    <MatIcon Icon="done_outlone" Id="practice"></MatIcon>
+    <label for="learn">Practice</label>
+</span>
+<br />
+<span style="zoom:2">
+    <MatIcon Icon="done_outlone" Id="trade"></MatIcon>
+    <label for="trade">Trade</label>
+</span>
+<br />
+@if (username == null)
+{
+    <div style="zoom:2">
+        <MatIcon Icon="done_outlone"></MatIcon>
+        <RadzenButton ButtonStyle="ButtonStyle.Warning" Click="LoginWindow">LogIn / SignUp</RadzenButton> for demo account
+    </div>
+}
+else
+{
+    <h2>Hello @username</h2>
+    <button class="navbar-brand text-white btn btn-danger" @onclick="Logout">Logout</button>
+}
+<br />
+<span style="zoom:2">
+    <MatIcon Icon="done_outlone" Id="simple"></MatIcon>
+    <label for="simple">Simple</label>
+</span>
+<span style="zoom:2">
+    <MatIcon Icon="done_outlone" Id="simple"></MatIcon>
+    <label for="simple">Up to date crypto prices</label>
+</span>
+<br />
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <coingecko-coin-heatmap-widget height="400" locale="en"></coingecko-coin-heatmap-widget>
+</div>
+<br />
+<br />
+
+
+

@@ -1,0 +1,17 @@
+﻿@page "/transactions"
+@inject IJSRuntime JsRuntime
+
+<br />
+<br />
+<br />
+<h1>History</h1>
+<br />
+<div id="data">
+</div>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await JsRuntime.InvokeAsync<string>(identifier: "Prefilter");
+        
+    }
+}

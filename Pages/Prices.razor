@@ -1,0 +1,53 @@
+﻿@page "/prices"
+@inherits PricesBase
+<br />
+<br />
+<br />
+<h1>Prices</h1>
+@if (btcPrice == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <input type="checkbox" @bind="ShowGraph" id="showGraph" />
+    <label for="showGraph">Show all data</label>
+    <br />
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <table class="table table-hover bg-white">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col"></th>
+                    <th scope="col">1$ exchange</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (CryptoPrice coin in cpData)
+                {
+                    <tr>
+                        <th scope="row"></th>
+                        <td><strong>@coin.Name.ToUpper()</strong></td>
+                        <td><img src=@coin.Image class="slike" /></td>
+                        <td>@coin.Value</td>
+                        <td>
+                            @if (ShowGraph)
+                            {
+                                <coingecko-coin-price-chart-widget coin-id="@coin.Name" currency="usd" height="200" width="500" locale="en"></coingecko-coin-price-chart-widget>
+                            }
+                            else
+                            {
+                                <span style="color:darkgray">hidden</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<MakeTransaction />
+<br /><br /><br />
+

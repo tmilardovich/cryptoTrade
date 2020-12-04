@@ -1,0 +1,61 @@
+@page "/news"
+@inherits NewsBase
+
+<br />
+<br />
+<br />
+<h1>News</h1>
+<br />
+<style>
+    .demo-mat-card {
+        max-width: 400px;
+        margin: 5px;
+    }
+
+    .demo-mat-card-content {
+        padding: 1rem;
+    }
+
+    .demo-mat-card-clean-margin {
+        margin: 0px;
+    }
+</style>
+
+@if (news == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    @foreach (var n in news)
+    {
+<span style="display:inline-block">
+    <MatCard class="demo-mat-card">
+        <MatCardContent>
+            <MatCardMedia Wide="true" ImageUrl="@n.Picture">
+                <div class="demo-mat-card-content" style="color: white;">
+                    <MatHeadline6 class="demo-mat-card-clean-margin" Style="background-color:orange;color:black">@n.Title</MatHeadline6>
+                </div>
+            </MatCardMedia>
+            <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin" Style="color:black">
+                @n.Summary
+            </MatBody2>
+        </MatCardContent>
+        <MatCardActions>
+            <MatCardActionButtons>
+                <a href="@n.LinkToArticle" target="_blank" class="badge badge-warning" style="zoom:2">Read full article</a>
+            </MatCardActionButtons>
+            <MatCardActionIcons>
+                <MatIconButton Icon="@MatIconNames.Favorite"></MatIconButton>
+                <MatIconButton Icon="@MatIconNames.Dashboard"></MatIconButton>
+            </MatCardActionIcons>
+        </MatCardActions>
+    </MatCard>
+</span>
+    }
+}
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <coingecko-coin-market-ticker-list-widget coin-id="bitcoin" currency="usd" locale="en" background-color="#e8d768"></coingecko-coin-market-ticker-list-widget>
+</div>
+<br /><br /><br />
+

@@ -1,0 +1,32 @@
+﻿[
+  {
+    "title": "Apple forces Coinbase to change its crypto products, says CEO",
+    "summary": "Brian Armstrong has taken Apple to task over its allegedly exclusionary policies towards crypto app developers.",
+    "picture": "img/imgnews/img1.PNG",
+    "linktoarticle": "https://cointelegraph.com/news/apple-forces-coinbase-to-change-its-crypto-products-says-ceo"
+  },
+  {
+    "title": "New blockchain offers minimal fees and fast transactions for DeFi apps",
+    "summary": "As DeFi sends Ethereum fees to a record average of $15, a new blockchain says it can execute an identical transaction for just $0.0008.",
+    "picture": "img/imgnews/img2.PNG",
+    "linktoarticle": "https://cointelegraph.com/news/new-blockchain-offers-minimal-fees-and-fast-transactions-for-defi-apps"
+  },
+  {
+    "title": "Tether (USDT) Recovers 1 Million Wrongly Transferred to a Different User",
+    "summary": "Paolo Ardoino, the CTO of Tether, announced that the company had recovered 1 million USDT for one of its users.",
+    "picture": "img/imgnews/img3.PNG",
+    "linktoarticle": "https://insidebitcoins.com/news/tether-usdt-recovers-1-million-wrongly-transferred-to-a-different-user"
+  },
+  {
+    "title": "Instant crypto exchange plans to launch iOS app for PRO services",
+    "summary": "A new iOS app being built will allow everyday consumers to buy and sell cryptocurrencies while providing traders an intuitive terminal without needing a desktop.",
+    "picture": "img/imgnews/img4.PNG",
+    "linktoarticle": "https://cointelegraph.com/news/instant-crypto-exchange-plans-to-launch-ios-app-for-pro-services"
+  },
+  {
+    "title": "Why DeFi Isn’t Always As Decentralized As You Might Think",
+    "summary": "Some DeFi platforms are more decentralized than others, while some are decentralized in different ways. Read more about this.",
+    "picture": "img/imgnews/img5.PNG",
+    "linktoarticle": "https://cryptonews.com/exclusives/why-defi-isn-t-always-as-decentralized-as-you-might-think-7695.htm"
+  }
+]

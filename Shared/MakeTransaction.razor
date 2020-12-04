@@ -1,0 +1,67 @@
+﻿@inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
+@inject IJSRuntime JsRuntime
+<div class="shadow-lg p-3 mb-5 bg-white rounded text-black-50">
+    <h1 style="color:black">Make conversion</h1>
+    <br />
+    <MatSelect Label="From: " @bind-Value="value1">
+        <MatOptionString></MatOptionString>
+        <MatOptionString Value="usdc">USD Coin</MatOptionString>
+        <MatOptionString Value="btc">Bitcoin</MatOptionString>
+        <MatOptionString Value="ltc">Litecoin</MatOptionString>
+        <MatOptionString Value="eth">Ethereum</MatOptionString>
+        <MatOptionString Value="eos">EOS</MatOptionString>
+        <MatOptionString Value="link">Chainlink</MatOptionString>
+    </MatSelect>
+    <MatSelect Label="To: " @bind-Value="value2">
+        <MatOptionString></MatOptionString>
+        <MatOptionString Value="usdc">USD Coin</MatOptionString>
+        <MatOptionString Value="btc">Bitcoin</MatOptionString>
+        <MatOptionString Value="ltc">Litecoin</MatOptionString>
+        <MatOptionString Value="eth">Ethereum</MatOptionString>
+        <MatOptionString Value="eos">EOS</MatOptionString>
+        <MatOptionString Value="link">Chainlink</MatOptionString>
+    </MatSelect>
+    <input type="number" @bind="myStringValue" @bind:event="oninput" />
+    <RadzenButton ButtonStyle="ButtonStyle.Warning" Click="@confirm">Confirm</RadzenButton>
+    <p style="color:black;zoom:3">
+        Converting @myStringValue @value1 to @value2
+    </p>
+</div>
+<br />
+@code
+        {
+    decimal myStringValue;
+    string value1;
+    string value2;
+
+    async void Send()
+    {
+        await JsRuntime.InvokeVoidAsync(identifier: "updatingData");
+    }
+    public void confirm()
+    {
+        string ls_value1 = "user" + value1.ToUpper();
+        string userValue1 = localStorage.GetItem<string>(ls_value1);
+        decimal uv1 = decimal.Parse(userValue1.Replace(".", ","));
+        string ls_value2 = "user" + value2.ToUpper();
+        string userValue2 = localStorage.GetItem<string>(ls_value2);
+        decimal uv2 = decimal.Parse(userValue2.Replace(".", ","));
+        if (myStringValue > uv1)
+        {
+            myStringValue = uv1;
+        }
+        string coin1Price = localStorage.GetItem<string>("price" + value1.ToUpper());
+        var c1p = decimal.Parse(coin1Price.Replace(".", ","));
+        string coin2Price = localStorage.GetItem<string>("price" + value2.ToUpper());
+        var c2p = decimal.Parse(coin2Price.Replace(".", ","));
+        int brojStanja = int.Parse(localStorage.GetItem<string>("brojStanja"));
+        brojStanja = brojStanja + 1;
+        localStorage.SetItem<string>("brojStanja", brojStanja.ToString());
+        decimal novaVrijednost = Math.Round((1 / c1p) * myStringValue, 2);
+        var noviCoini = Math.Round(c2p * novaVrijednost, 2);
+        localStorage.SetItem<string>(ls_value1, (uv1-myStringValue).ToString());
+        localStorage.SetItem<string>(ls_value2, (uv2 + noviCoini).ToString());
+        Send();
+        StateHasChanged();
+    }
+}
